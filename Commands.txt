@@ -1,0 +1,51 @@
+Go to the Kafka folder in your machine
+cd /users/<your_userid>/Applications/kafka_2.13-3.0.0/bin
+
+Starting Zookeeper
+./zookeeper-server-start.sh ../config/zookeeper.properties 
+
+Staring Kafka Server
+./kafka-server-start.sh ../config/server.properties 
+
+Create Topic
+./kafka-topics.sh --create --topic testtopic --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1
+./kafka-topics.sh --create --topic testtopicoutput --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1
+
+Listing all the topics
+./kafka-topics.sh --list --bootstrap-server localhost:9092
+
+Create Kafka Console Producer:
+./kafka-console-producer.sh --topic testtopic --bootstrap-server localhost:9092
+
+Create Kafka Console Consumer:
+./kafka-console-consumer.sh --topic testtopic --from-beginning --bootstrap-server localhost:9092
+./kafka-console-consumer.sh --topic testtopicoutput --from-beginning --bootstrap-server localhost:9092
+
+You can run the application from eclipse or IDE where you have loaded this application.
+In the Kafka producer window. Enter the text "Hello World"
+In the Kafka consumer window
+	- testtopic: You will see the text "Hello World"
+	- testtopicoutput: You will see the processed text "Receiving from Kafka: HELLO WORLD"
+In the eclipse application console window you will seeing the following output. You can ignore the warnings just to see if the code is working properly.
+Welcome to Flink Processor
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.apache.flink.api.java.ClosureCleaner (file:/Users/<your_userid>/.m2/repository/org/apache/flink/flink-core/1.14.1/flink-core-1.14.1.jar) to field java.lang.String.value
+WARNING: Please consider reporting this to the maintainers of org.apache.flink.api.java.ClosureCleaner
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+8> Receiving from Kafka: HELLO WORLD
+
+If you want to run this as a job in the Flink follow the steps below:-
+
+Set JAVA_HOME to JDK 11. 
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.12.jdk/Contents/Home
+
+Starting Apache Flink
+cd /Users/nasinha/Applications/flink-1.14.0/bin
+./start-cluster.sh
+
+http://localhost:8081/
+You can upload your application in the flink web and submit the job there
