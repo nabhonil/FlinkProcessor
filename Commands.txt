@@ -24,8 +24,8 @@ Create Kafka Console Consumer:
 ./kafka-console-consumer.sh --topic testtopicoutput --from-beginning --bootstrap-server localhost:9092
 
 You can run the application from eclipse or IDE where you have loaded this application.
-In the Kafka producer window. Enter the text "Hello World"
-In the Kafka consumer window
+In the Kafka producer terminal window. Enter the text "Hello World"
+In the Kafka consumer terminal window:
 	- testtopic: You will see the text "Hello World"
 	- testtopicoutput: You will see the processed text "Receiving from Kafka: HELLO WORLD"
 In the eclipse application console window you will seeing the following output. You can ignore the warnings just to see if the code is working properly.
