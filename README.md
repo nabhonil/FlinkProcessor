@@ -8,6 +8,10 @@ The various concepts used in this example are as follows:-
 3. Flink DataStream
 4. Kafka Connectors
 
+The logic of this application is to read the data stream (in the form of Strings) from a Kafka Topic "testtopic" and use the Flink to 
+process the String by converting it to Upper Case and appending this Upper Case String to the statement "Receiving from Kafka: ".
+Once the data is processed it is sent to another Kafka topic "testtopicoutput" and also shown in the application console.
+
 ## How to use the code
 
 Please refer to the Commands.txt on how to run this application.
