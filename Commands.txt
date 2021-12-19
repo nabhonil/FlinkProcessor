@@ -1,6 +1,8 @@
 Go to the Kafka folder in your machine
 cd /users/<your_userid>/Applications/kafka_2.13-3.0.0/bin
 
+Execute all the .sh commands in a separate terminal window.
+
 Starting Zookeeper
 ./zookeeper-server-start.sh ../config/zookeeper.properties 
 
